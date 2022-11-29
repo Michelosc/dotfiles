@@ -1,0 +1,45 @@
+Config { 
+        font = "xft:Hack Nerd Font Mono:pixelsize=11:antialias=true:hinting=true",
+        additionalFonts = ["xft:Font Awesome 6 Free Solid:pixelsize=12",
+            "xft:Font Awesome 6 Brands:pixelsize=12"
+        ],
+        borderColor = "black",
+        border = TopB,
+        bgColor  = "#282c34",
+        fgColor  = "#ff6c6b",
+        alpha = 255,
+        position = TopSize L 100 24,
+        textOffset = -1,
+        iconOffset = -1,
+        lowerOnStart = True,
+        pickBroadest = False,
+        persistent = True,
+        hideOnStart = False,
+        iconRoot = ".",
+        allDesktops = True,
+        overrideRedirect = True,
+        commands = [
+                      -- Echos a "penguin" icon in front of the kernel output.
+                      Run Com "echo" ["<fn=2>\xf17c</fn>"] "penguin" 3600
+                      -- Get kernel version (script found in .local/bin)
+                    , Run Com ".config/xmonad/scripts/kernel" [] "kernel" 36000
+                      -- Cpu usage in percent
+                    , Run Cpu ["-t", "<fn=1>\xf2db</fn> (<total>%)","-H","50","--high","red"] 20
+                      -- Ram used number and percent
+                    , Run Memory ["-t", "<fn=1>\xf538</fn> <used>M (<usedratio>%)"] 20
+                      -- Disk space free
+                    , Run DiskU [("/home", "<fn=1>\xf0a0</fn> <free> free")] [] 60
+                      -- Echos a "bell" icon in front of the pacman updates.
+                    , Run Com "echo" ["<fn=1>\xf0f3</fn>"] "bell" 3600
+                      -- Check for pacman updates (script found in .local/bin)
+                    , Run Com ".config/xmonad/scripts/pacupdate" [] "pacupdate" 36000
+                      -- Time and date
+                    , Run Date "<fn=1>\xf017</fn> %b %d %Y - %H:%M " "date" 50
+                      -- cript that dynamically adjusts xmobar padding depending on number of trayer icons.
+                    , Run Com "/home/michel/.config/xmobar/trayer-padding-icon.sh" [] "trayerpad" 20
+                    , Run UnsafeStdinReader 
+                    ]
+       , sepChar  = "%"
+       , alignSep = "}{"
+       , template = " %UnsafeStdinReader% }{<box type=Bottom width=2 mb=2 color=#51afef><fc=#51afef>%penguin% %kernel%</fc></box> <box type=Bottom width=2 mb=2 color=#ecbe7b><fc=#ecbe7b><action=`alacritty -e htop`>%cpu%</action></fc></box> <box type=Bottom width=2 mb=2 color=#ff6c6b><fc=#ff6c6b><action=`alacritty -e htop`>%memory%</action></fc></box> <box type=Bottom width=2 mb=2 color=#a9a1e1><fc=#a9a1e1>%disku%</fc></box> <box type=Bottom width=2 mb=2 color=#c678dd><fc=#c678dd>%bell% <action=`alacritty -e yay `>%pacupdate%</action></fc></box> <box type=Bottom width=2 mb=2 color=#46d9ff><fc=#46d9ff>%date%</fc></box> %trayerpad%"
+       }
