@@ -139,10 +139,13 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm,               xK_p     ), spawn "exe=`dmenu_path | dmenu` && eval \"exec $exe\"")
 
     -- launch gmrun
-    , ((modm .|. shiftMask, xK_p     ), spawn "gmrun"),
+    , ((modm .|. shiftMask, xK_p     ), spawn "gmrun")
 
-    -- launch Google Chrome
-    ((modm, xK_b), spawn "brave")
+    -- launch Brave browser
+    , ((modm, xK_b), spawn "brave")
+
+    -- launch Nautilus
+    , ((modm, xK_f), spawn "nautilus")
 
     -- close focused window
     , ((modm .|. shiftMask, xK_c     ), kill)
@@ -455,7 +458,8 @@ myEventHook = mempty
 --
 myStartupHook = do
   spawn "killall trayer"
-
+  
+  spawnOnce "volumeicon &"
   spawnOnce "nitrogen --restore &"
   spawnOnce "megasync &"
   spawnOnce "setxkbmap -layout br &"
