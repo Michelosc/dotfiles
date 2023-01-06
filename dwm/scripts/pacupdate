@@ -1,0 +1,15 @@
+#!/bin/bash
+
+CHK=`pacman -Qm`
+CHKAUR="$(yay -Qu)"
+
+if [ ${#CHKAUR} -gt 0 ]; then 
+    if [ "$CHK" = "" ]; then
+        CHK="${CHKAUR}"
+    else
+        CHK="${CHK}"$'\n'"${CHKAUR}"
+    fi
+fi
+
+CHK=$(echo "${CHK}" | sort |uniq | wc -l)
+echo "${CHK} "

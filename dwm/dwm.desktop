@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=dwm
+Comment=suckless tiling window manager
+Exec=dwm
+TryExec=dwm
+Type=Application
+
