@@ -1,6 +1,6 @@
 #!/bin/bash
 
-CHK=`pacman -Qm`
+CHK=`checkupdates`
 CHKAUR="$(yay -Qu)"
 
 if [ ${#CHKAUR} -gt 0 ]; then 
