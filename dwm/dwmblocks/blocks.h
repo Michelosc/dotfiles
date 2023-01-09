@@ -2,8 +2,8 @@
 static const Block blocks[] = {
 	/*Icon*/	/*Command*/		/*Update Interval*/	/*Update Signal*/
   {" ", "~/.config/dwm/scripts/pacupdate", 3600, 0},
-  {" ", "~/.config/dwm/scripts/ram",	5,		0},
-  {" ", "~/.config/dwm/scripts/cpu", 5, 0},
+  {" ", "~/.config/dwm/scripts/ram",	5,		0},
+  {" ", "~/.config/dwm/scripts/cpu", 5, 0},
 	{" ", "date '+%b %d (%a) %I:%M%p'",					5,		0},
 };
 
