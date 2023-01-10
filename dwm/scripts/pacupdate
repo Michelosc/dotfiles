@@ -1,15 +1,3 @@
 #!/bin/bash
-
-CHK=`checkupdates`
-CHKAUR="$(yay -Qu)"
-
-if [ ${#CHKAUR} -gt 0 ]; then 
-    if [ "$CHK" = "" ]; then
-        CHK="${CHKAUR}"
-    else
-        CHK="${CHK}"$'\n'"${CHKAUR}"
-    fi
-fi
-
-CHK=$(echo "${CHK}" | sort |uniq | wc -l)
+CHK=`checkupdates | wc -l`
 echo "${CHK} "

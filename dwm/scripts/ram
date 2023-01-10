@@ -1,4 +1,4 @@
 #!/bin/bash
-
+MEMUSED=$(free -h  | grep ^Mem | tr -s ' ' | cut -d ' ' -f 3)
 MEM=$(free | awk '/^Mem/ { printf("%.1f%\n", $3/$2 * 100.0) }')
-echo "$MEM "
+echo "$MEMUSED ($MEM) "
