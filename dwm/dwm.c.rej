@@ -1,20 +1,26 @@
 --- dwm.c
 +++ dwm.c
-@@ -211,13 +233,16 @@ static void pop(Client *c);
- static void propertynotify(XEvent *e);
- static void quit(const Arg *arg);
- static Monitor *recttomon(int x, int y, int w, int h);
-+static void removesystrayicon(Client *i);
- static void resize(Client *c, int x, int y, int w, int h, int interact);
-+static void resizebarwin(Monitor *m);
- static void resizeclient(Client *c, int x, int y, int w, int h);
- static void resizemouse(const Arg *arg);
-+static void resizerequest(XEvent *e);
- static void restack(Monitor *m);
- static void run(void);
- static void scan(void);
--static int sendevent(Client *c, Atom proto);
-+static int sendevent(Window w, Atom proto, int m, long d0, long d1, long d2, long d3, long d4);
- static void sendmon(Client *c, Monitor *m);
- static void setclientstate(Client *c, long state);
- static void setfocus(Client *c);
+@@ -262,6 +264,7 @@ static void (*handler[LASTEvent]) (XEvent *) = {
+ 	[UnmapNotify] = unmapnotify
+ };
+ static Atom wmatom[WMLast], netatom[NetLast];
++static int restart = 0;
+ static int running = 1;
+ static Cur *cursor[CurLast];
+ static Clr **scheme;
+@@ -1250,6 +1253,7 @@ propertynotify(XEvent *e)
+ void
+ quit(const Arg *arg)
+ {
++	if(arg->i) restart = 1;
+ 	running = 0;
+ }
+ 
+@@ -2158,6 +2179,7 @@ main(int argc, char *argv[])
+ 	setup();
+ 	scan();
+ 	run();
++	if(restart) execvp(argv[0], argv);
+ 	cleanup();
+ 	XCloseDisplay(dpy);
+ 	return EXIT_SUCCESS;
