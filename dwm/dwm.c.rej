@@ -1,26 +1,12 @@
 --- dwm.c
 +++ dwm.c
-@@ -262,6 +264,7 @@ static void (*handler[LASTEvent]) (XEvent *) = {
- 	[UnmapNotify] = unmapnotify
- };
- static Atom wmatom[WMLast], netatom[NetLast];
-+static int restart = 0;
- static int running = 1;
- static Cur *cursor[CurLast];
- static Clr **scheme;
-@@ -1250,6 +1253,7 @@ propertynotify(XEvent *e)
- void
- quit(const Arg *arg)
- {
-+	if(arg->i) restart = 1;
- 	running = 0;
+@@ -723,6 +790,9 @@ destroynotify(XEvent *e)
+ 
+ 	if ((c = wintoclient(ev->window)))
+ 		unmanage(c, 1);
++
++	else if ((c = swallowingclient(ev->window)))
++		unmanage(c->swallowing, 1);
  }
  
-@@ -2158,6 +2179,7 @@ main(int argc, char *argv[])
- 	setup();
- 	scan();
- 	run();
-+	if(restart) execvp(argv[0], argv);
- 	cleanup();
- 	XCloseDisplay(dpy);
- 	return EXIT_SUCCESS;
+ void
