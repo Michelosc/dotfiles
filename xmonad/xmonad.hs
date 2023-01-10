@@ -489,7 +489,7 @@ main = do
             ppHidden = xmobarColor color05 "" .wrap
                                    ("<box type=Top width=2 mt=2 color=" ++ color05 ++ ">") "</box>" . clickable,
             -- Hidden workspaces (no windows)
-            ppHiddenNoWindows = xmobarColor color05 "" . clickable,
+          --  ppHiddenNoWindows = xmobarColor color05 "" . clickable,
             -- Title of active window
             ppTitle = xmobarColor "#a4aaeb" "" . shorten 60,
             -- Separator character
