@@ -1,0 +1,3 @@
+#!/bin/bash
+hour=$(date '+%H:%M')
+echo "${hour}"
