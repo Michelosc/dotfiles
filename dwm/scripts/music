@@ -1,0 +1,3 @@
+#!/bin/bash
+MUS=`ncmpcpp -q --current-song "%a - %t"`
+echo "${MUS}"
