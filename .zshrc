@@ -16,7 +16,7 @@ alias grep='rg'
 
 alias ls='exa --icons'
 
-alias ll='ls -al'
+alias ll='ls -alg'
 
 alias du='dust'
 
