@@ -1,4 +1,4 @@
 #!/bin/bash
 
-VOLUME=$(pamixer --get-volume-human)
-echo "${VOLUME}"
+VOLUME=$(pulsemixer --get-volume | sed 's/\|/ /'|awk '{print $1}')
+echo "${VOLUME}%"

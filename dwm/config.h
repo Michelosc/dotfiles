@@ -14,7 +14,7 @@ static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display 
 static const int showsystray        = 1;        /* 0 means no systray */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "Fira Code:size=11" };
+static const char *fonts[]          = { "FiraCode Nerd Font:size=11" };
 static const char dmenufont[]       = "monospace:size=10";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
@@ -92,10 +92,10 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_b,	     spawn,	         {.v = browser } },
 	{ MODKEY|ShiftMask,		          XK_f,	     spawn,	         {.v = fileManager} },
 	{ MODKEY|ShiftMask,             XK_b,      togglebar,      {0} },
-  { MODKEY,			                  XK_F10,	   spawn,		       SHCMD("pamixer -d 5") },
-	{ MODKEY|ShiftMask,		          XK_F10,	   spawn,		       SHCMD("pamixer -d 15") },
-	{ MODKEY,			                  XK_F11,	   spawn,		       SHCMD("pamixer -i 5") },
-	{ MODKEY|ShiftMask,		          XK_F11,	   spawn,		       SHCMD("pamixer -i 15") },
+  { MODKEY,			                  XK_F10,	   spawn,		       SHCMD("pulsemixer --change-volume -5") },
+	{ MODKEY|ShiftMask,		          XK_F10,	   spawn,		       SHCMD("pulsemixer --change-volume -15") },
+	{ MODKEY,			                  XK_F11,	   spawn,		       SHCMD("pulsemixer --change-volume +5") },
+	{ MODKEY|ShiftMask,		          XK_F11,	   spawn,		       SHCMD("pulsemixer --change-volume +15") },
   { MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
 	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
