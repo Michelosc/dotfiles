@@ -4,6 +4,8 @@ eval "$(starship init zsh)"
 
 eval "$(zoxide init zsh)"
 
+export PATH=$PATH:/usr/local/go/bin
+
 export PATH=$HOME/.local/bin:$HOME/.cargo/bin:$PATH
 
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
