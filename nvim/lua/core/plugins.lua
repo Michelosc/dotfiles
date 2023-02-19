@@ -22,6 +22,10 @@ return require('packer').startup(function(use)
   use 'lewis6991/gitsigns.nvim'
   use 'windwp/nvim-autopairs'
   use 'numToStr/Comment.nvim'
+  use 'akinsho/bufferline.nvim'
+  use 'moll/vim-bbye'
+  use 'akinsho/toggleterm.nvim'
+
   -- Treesitter
   use 'nvim-treesitter/nvim-treesitter'
   use 'JoosepAlviste/nvim-ts-context-commentstring'
