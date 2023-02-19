@@ -25,6 +25,12 @@ return require('packer').startup(function(use)
   use 'akinsho/bufferline.nvim'
   use 'moll/vim-bbye'
   use 'akinsho/toggleterm.nvim'
+  use 'lukas-reineke/indent-blankline.nvim'
+  
+  -- DAP
+  use 'mfussenegger/nvim-dap'
+  use 'rcarriga/nvim-dap-ui'
+  use 'ravenxrz/DAPInstall.nvim'
 
   -- Treesitter
   use 'nvim-treesitter/nvim-treesitter'
