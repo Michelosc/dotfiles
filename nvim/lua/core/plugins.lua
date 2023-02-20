@@ -26,7 +26,8 @@ return require('packer').startup(function(use)
   use 'moll/vim-bbye'
   use 'akinsho/toggleterm.nvim'
   use 'lukas-reineke/indent-blankline.nvim'
-  
+  use 'christianchiarulli/lua-dev.nvim'
+  use 'b0o/SchemaStore.nvim'
   -- DAP
   use 'mfussenegger/nvim-dap'
   use 'rcarriga/nvim-dap-ui'
@@ -62,7 +63,10 @@ return require('packer').startup(function(use)
     'neovim/nvim-lspconfig',
   }
   use 'jose-elias-alvarez/null-ls.nvim'
+  use 'RRethy/vim-illuminate'
 
+  -- Java
+  use 'mfussenegger/nvim-jdtls'
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
