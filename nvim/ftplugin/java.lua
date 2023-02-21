@@ -203,6 +203,7 @@ local config = {
 jdtls.start_or_attach(config)
 
 -- require('jdtls').setup_dap()
+require("jdtls").setup_dap({ hotcodereplace = "auto" })
 
 vim.cmd "command! -buffer -nargs=? -complete=custom,v:lua.require'jdtls'._complete_compile JdtCompile lua require('jdtls').compile(<f-args>)"
 vim.cmd "command! -buffer -nargs=? -complete=custom,v:lua.require'jdtls'._complete_set_runtime JdtSetRuntime lua require('jdtls').set_runtime(<f-args>)"

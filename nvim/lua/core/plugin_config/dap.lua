@@ -13,6 +13,8 @@ if not dap_install_status_ok then
   return
 end
 
+local D = {}
+
 dap_install.setup {}
 
 dap_install.config("python", {})
@@ -73,3 +75,18 @@ end
 dap.listeners.before.event_exited["dapui_config"] = function()
   dapui.close()
 end
+
+D.attach_to_debug = function ()
+  dap.configurations.java = {
+    {
+      type = 'java';
+      request = 'attach';
+      name = "Attach to the proccess";
+      hotsName = 'localhost';
+      port = '5005';
+    },
+  }
+  dap.continue()
+end
+
+return D

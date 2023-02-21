@@ -32,7 +32,7 @@ return require('packer').startup(function(use)
   use 'mfussenegger/nvim-dap'
   use 'rcarriga/nvim-dap-ui'
   use 'ravenxrz/DAPInstall.nvim'
-
+  use 'simrat39/rust-tools.nvim'
   -- Treesitter
   use 'nvim-treesitter/nvim-treesitter'
   use 'JoosepAlviste/nvim-ts-context-commentstring'
