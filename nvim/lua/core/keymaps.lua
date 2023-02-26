@@ -62,6 +62,8 @@ keymap("n", "<leader>ff", ":Telescope find_files<CR>", opts)
 keymap("n", "<leader>ft", ":Telescope live_grep<CR>", opts)
 keymap("n", "<leader>fp", ":Telescope projects<CR>", opts)
 keymap("n", "<leader>fb", ":Telescope buffers<CR>", opts)
+keymap("n", "<leader>lb", "<cmd>lua require'telescope'.extensions.dap.list_breakpoints()<CR>", opts)
+
 
 -- Git
 keymap("n", "<leader>gg", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", opts)
@@ -71,6 +73,7 @@ keymap("n", "<leader>/", "<cmd>lua require('Comment.api').toggle.linewise.curren
 keymap("x", "<leader>/", "<esc><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>", opts)
 
 -- DAP
+keymap("n", "<leader>da", "<cmd>lua require'core.plugin_config.dap'.attach_to_debug()<CR>", opts)
 keymap("n", "<leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<cr>", opts)
 keymap("n", "<leader>dc", "<cmd>lua require'dap'.continue()<cr>", opts)
 keymap("n", "<leader>di", "<cmd>lua require'dap'.step_into()<cr>", opts)
@@ -80,7 +83,26 @@ keymap("n", "<leader>dr", "<cmd>lua require'dap'.repl.toggle()<cr>", opts)
 keymap("n", "<leader>dl", "<cmd>lua require'dap'.run_last()<cr>", opts)
 keymap("n", "<leader>du", "<cmd>lua require'dapui'.toggle()<cr>", opts)
 keymap("n", "<leader>dt", "<cmd>lua require'dap'.terminate()<cr>", opts)
-keymap("n", "<leader>da", "<cmd>lua require'core.plugin_config.dap'.attach_to_debug()<CR>", opts)
+keymap("n", "<leader>dd", "<cmd>lua require'dap'.list_breakpoints()<cr>", opts)
+keymap("n", "<leader>de", "<cmd>lua require'dap'.clear_breakpoints()<cr>", opts)
+vim.keymap.set({'n', 'v'}, '<Leader>dh', function()
+      require('dap.ui.widgets').hover()
+    end)
+    vim.keymap.set({'n', 'v'}, '<Leader>dp', function()
+      require('dap.ui.widgets').preview()
+    end)
+    vim.keymap.set('n', '<Leader>df', function()
+      local widgets = require('dap.ui.widgets')
+      widgets.centered_float(widgets.frames)
+    end)
+    vim.keymap.set('n', '<Leader>ds', function()
+      local widgets = require('dap.ui.widgets')
+      widgets.centered_float(widgets.scopes)
+    end)
+
+-- Runner
+keymap("n", '<F9>', '<cmd>lua require("core.utils").run_spring_boot()<cr>', opts)
+keymap("n", '<F10>', '<cmd>lua require("core.utils").run_spring_boot(true)<cr>', opts)
 
 -- Lsp
 keymap("n", "<leader>lf", "<cmd>lua vim.lsp.buf.format{ async = true }<cr>", opts)

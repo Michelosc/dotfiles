@@ -104,6 +104,11 @@ _G.packer_plugins = {
     path = "/home/michel/.local/share/nvim/site/pack/packer/start/cmp-buffer",
     url = "https://github.com/hrsh7th/cmp-buffer"
   },
+  ["cmp-dap"] = {
+    loaded = true,
+    path = "/home/michel/.local/share/nvim/site/pack/packer/start/cmp-dap",
+    url = "https://github.com/rcarriga/cmp-dap"
+  },
   ["cmp-nvim-lsp"] = {
     loaded = true,
     path = "/home/michel/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
@@ -189,6 +194,11 @@ _G.packer_plugins = {
     path = "/home/michel/.local/share/nvim/site/pack/packer/start/nvim-dap-ui",
     url = "https://github.com/rcarriga/nvim-dap-ui"
   },
+  ["nvim-dap-virtual-text"] = {
+    loaded = true,
+    path = "/home/michel/.local/share/nvim/site/pack/packer/start/nvim-dap-virtual-text",
+    url = "https://github.com/theHamsta/nvim-dap-virtual-text"
+  },
   ["nvim-jdtls"] = {
     loaded = true,
     path = "/home/michel/.local/share/nvim/site/pack/packer/start/nvim-jdtls",
@@ -233,6 +243,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/michel/.local/share/nvim/site/pack/packer/start/rust-tools.nvim",
     url = "https://github.com/simrat39/rust-tools.nvim"
+  },
+  ["telescope-dap.nvim"] = {
+    loaded = true,
+    path = "/home/michel/.local/share/nvim/site/pack/packer/start/telescope-dap.nvim",
+    url = "https://github.com/nvim-telescope/telescope-dap.nvim"
   },
   ["telescope.nvim"] = {
     loaded = true,
