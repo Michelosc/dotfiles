@@ -124,16 +124,13 @@ vim.keymap.set("n", "<space>u", vim.cmd.UndotreeToggle)
 
 -- Harpoon
 
-local mark = require("harpoon.mark")
-local ui = require("harpoon.ui")
+keymap("n", "<Space>a", "<Cmd>lua require('harpoon.mark').add_file()<CR>", opts)
+keymap("n", "<C-e>", "<Cmd>lua require('harpoon.ui').toggle_quick_menu()<CR>", opts)
 
-vim.keymap.set("n", "<Space>a", mark.add_file)
-vim.keymap.set("n", "<C-e>", ui.toggle_quick_menu)
-
-vim.keymap.set("n", "C-h>", function () ui.nav_file(1) end)
-vim.keymap.set("n", "C-t>", function () ui.nav_file(2) end)
-vim.keymap.set("n", "C-n>", function () ui.nav_file(3) end)
-vim.keymap.set("n", "C-s>", function () ui.nav_file(4) end)
+keymap("n", "<C-y>", "<Cmd>lua require('harpoon.ui').nav_file(1)<CR>", opts)
+keymap("n", "<C-t>","<Cmd>lua require('harpoon.ui').nav_file(2)<CR>", opts)
+keymap("n", "<C-n>","<Cmd>lua require('harpoon.ui').nav_file(3)<CR>", opts)
+keymap("n", "<C-s>","<Cmd>lua require('harpoon.ui').nav_file(4)<CR>", opts)
 
 
 K.lsp_keymaps = function(bufnr)
