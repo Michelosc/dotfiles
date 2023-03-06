@@ -28,6 +28,8 @@ return require("packer").startup(function(use)
 	use("lukas-reineke/indent-blankline.nvim")
 	use("christianchiarulli/lua-dev.nvim")
 	use("b0o/SchemaStore.nvim")
+  use("goolord/alpha-nvim")
+  use("lewis6991/impatient.nvim")
 
 	-- DAP
 	use("mfussenegger/nvim-dap")
