@@ -19,7 +19,6 @@ return require("packer").startup(function(use)
 	use("nvim-lualine/lualine.nvim")
 	use("theprimeagen/harpoon")
 	use("mbbill/undotree")
-	use("lewis6991/gitsigns.nvim")
 	use("windwp/nvim-autopairs")
 	use("numToStr/Comment.nvim")
 	use("akinsho/bufferline.nvim")
@@ -28,22 +27,26 @@ return require("packer").startup(function(use)
 	use("lukas-reineke/indent-blankline.nvim")
 	use("christianchiarulli/lua-dev.nvim")
 	use("b0o/SchemaStore.nvim")
-  use("goolord/alpha-nvim")
-  use("lewis6991/impatient.nvim")
+	use("goolord/alpha-nvim")
+	use("lewis6991/impatient.nvim")
+
+	-- Git
+	use("f-person/git-blame.nvim")
+	use("lewis6991/gitsigns.nvim")
 
 	-- DAP
 	use("mfussenegger/nvim-dap")
 	use("rcarriga/nvim-dap-ui")
 	use("ravenxrz/DAPInstall.nvim")
 	use("simrat39/rust-tools.nvim")
-  use("nvim-telescope/telescope-dap.nvim")
-  use("theHamsta/nvim-dap-virtual-text")
+	use("nvim-telescope/telescope-dap.nvim")
+	use("theHamsta/nvim-dap-virtual-text")
 
 	-- Treesitter
 	use("nvim-treesitter/nvim-treesitter")
 	use("JoosepAlviste/nvim-ts-context-commentstring")
-  use "nvim-treesitter/playground"
-  use "p00f/nvim-ts-rainbow"
+	use("nvim-treesitter/playground")
+	use("p00f/nvim-ts-rainbow")
 
 	-- Telescope
 	use({
@@ -77,8 +80,8 @@ return require("packer").startup(function(use)
 	-- Java
 	use("mfussenegger/nvim-jdtls")
 
-  -- Typescript
-  use "jose-elias-alvarez/typescript.nvim"
+	-- Typescript
+	use("jose-elias-alvarez/typescript.nvim")
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
