@@ -48,7 +48,7 @@ M.on_attach = function(client, bufnr)
 		return
 	end
 
-  require("core.keymaps").lsp_keymaps(bufnr)
+  require("user.keymaps").lsp_keymaps(bufnr)
 	local status_ok, illuminate = pcall(require, "illuminate")
 	if not status_ok then
 		print("test")

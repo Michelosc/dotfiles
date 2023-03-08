@@ -54,19 +54,19 @@ local opts = {}
 
 for _, server in pairs(servers) do
   opts = {
-    on_attach = require("core.lsp.handlers").on_attach,
-    capabilities = require("core.lsp.handlers").capabilities,
+    on_attach = require("user.lsp.handlers").on_attach,
+    capabilities = require("user.lsp.handlers").capabilities,
   }
 
   server = vim.split(server, "@")[1]
 
   if server == "jsonls" then
-    local jsonls_opts = require("core.lsp.settings.jsonls")
+    local jsonls_opts = require("user.lsp.settings.jsonls")
     opts = vim.tbl_deep_extend("force", jsonls_opts, opts)
   end
 
   if server == "yamlls" then
-    local yamlls_opts = require("core.lsp.settings.yamlls")
+    local yamlls_opts = require("user.lsp.settings.yamlls")
     opts = vim.tbl_deep_extend("force", yamlls_opts, opts)
   end
 
@@ -92,17 +92,17 @@ for _, server in pairs(servers) do
   end
 
   if server == "tsserver" then
-    local tsserver_opts = require("core.lsp.settings.tsserver")
+    local tsserver_opts = require("user.lsp.settings.tsserver")
     opts = vim.tbl_deep_extend("force", tsserver_opts, opts)
   end
 
   if server == "pyright" then
-    local pyright_opts = require("core.lsp.settings.pyright")
+    local pyright_opts = require("user.lsp.settings.pyright")
     opts = vim.tbl_deep_extend("force", pyright_opts, opts)
   end
 
   if server == "emmet_ls" then
-    local emmet_ls_opts = require("core.lsp.settings.emmet_ls")
+    local emmet_ls_opts = require("user.lsp.settings.emmet_ls")
     opts = vim.tbl_deep_extend("force", emmet_ls_opts, opts)
   end
 
@@ -112,7 +112,7 @@ for _, server in pairs(servers) do
   end
 
   if server == "rust_analyzer" then
-    local rust_opts = require("core.lsp.settings.rust")
+    local rust_opts = require("user.lsp.settings.rust")
     -- opts = vim.tbl_deep_extend("force", rust_opts, opts)
     local rust_tools_status_ok, rust_tools = pcall(require, "rust-tools")
     if not rust_tools_status_ok then

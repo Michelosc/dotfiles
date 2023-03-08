@@ -73,7 +73,7 @@ keymap("n", "<leader>/", "<cmd>lua require('Comment.api').toggle.linewise.curren
 keymap("x", "<leader>/", "<esc><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>", opts)
 
 -- DAP
-keymap("n", "<leader>da", "<cmd>lua require'core.plugin_config.dap'.attach_to_debug()<CR>", opts)
+keymap("n", "<leader>da", "<cmd>lua require'user.dap'.attach_to_debug()<CR>", opts)
 keymap("n", "<leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<cr>", opts)
 keymap("n", "<leader>dc", "<cmd>lua require'dap'.continue()<cr>", opts)
 keymap("n", "<leader>di", "<cmd>lua require'dap'.step_into()<cr>", opts)
@@ -101,8 +101,8 @@ vim.keymap.set({'n', 'v'}, '<Leader>dh', function()
     end)
 
 -- Runner
-keymap("n", '<F9>', '<cmd>lua require("core.utils").run_spring_boot()<cr>', opts)
-keymap("n", '<F10>', '<cmd>lua require("core.utils").run_spring_boot(true)<cr>', opts)
+keymap("n", '<F9>', '<cmd>lua require("user.utils").run_spring_boot()<cr>', opts)
+keymap("n", '<F10>', '<cmd>lua require("user.utils").run_spring_boot(true)<cr>', opts)
 
 -- Lsp
 keymap("n", "<leader>lf", "<cmd>lua vim.lsp.buf.format{ async = true }<cr>", opts)
