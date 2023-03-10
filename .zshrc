@@ -4,7 +4,11 @@ eval "$(starship init zsh)"
 
 eval "$(zoxide init zsh)"
 
-export PATH=$PATH:/usr/local/go/bin
+# Go variables
+export GOROOT=/usr/local/go
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+
 
 export PATH=$HOME/.local/bin:$HOME/.cargo/bin:$PATH
 

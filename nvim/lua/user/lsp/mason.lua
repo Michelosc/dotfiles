@@ -24,6 +24,7 @@ local servers = {
   "clangd",
   "rust_analyzer",
   "taplo",
+  "gopls",
 }
 
 local settings = {
@@ -121,6 +122,11 @@ for _, server in pairs(servers) do
 
     rust_tools.setup(rust_opts)
     goto continue
+  end
+
+  if server == "gopls" then
+    local gopls_opts = require("user.lsp.settings.gopls")
+    opts = vim.tbl_deep_extend("force", gopls_opts, opts)
   end
 
   lspconfig[server].setup(opts)

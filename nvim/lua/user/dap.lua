@@ -21,6 +21,8 @@ dap_install.config("python", {})
 
 require("nvim-dap-virtual-text").setup()
 
+require('dap-go').setup()
+
 -- add other configs here
 
 -- dapui.setup {

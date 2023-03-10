@@ -41,6 +41,7 @@ return require("packer").startup(function(use)
 	use("simrat39/rust-tools.nvim")
 	use("nvim-telescope/telescope-dap.nvim")
 	use("theHamsta/nvim-dap-virtual-text")
+	use("leoluz/nvim-dap-go")
 
 	-- Treesitter
 	use("nvim-treesitter/nvim-treesitter")
@@ -82,6 +83,9 @@ return require("packer").startup(function(use)
 
 	-- Typescript
 	use("jose-elias-alvarez/typescript.nvim")
+
+	-- Go
+	use("fatih/vim-go") -- https://github.com/fatih/vim-go
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins

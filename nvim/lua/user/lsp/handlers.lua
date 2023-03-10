@@ -65,6 +65,10 @@ M.on_attach = function(client, bufnr)
 		client.resolved_capabilities.textDocument.completion.completionItem.snippetSupport = false
 	end
 
+  if client.name == "gopls" then
+    vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+  end
+
 	M.capabilities = vim.lsp.protocol.make_client_capabilities()
 	M.capabilities.textDocument.completion.completionItem.snippetSupport = true
 	M.capabilities = cmp_nvim_lsp.default_capabilities(M.capabilities)
