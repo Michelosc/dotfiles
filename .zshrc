@@ -12,6 +12,8 @@ export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 
 export PATH=$HOME/.local/bin:$HOME/.cargo/bin:$PATH
 
+export EDITOR=nvim
+
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 source /home/michel/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

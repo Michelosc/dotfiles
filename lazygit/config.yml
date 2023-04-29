@@ -1,3 +1,7 @@
+keybinding:
+  universal:
+    return: '<c-q>'
+
 gui:
   theme:
     selectedLineBgColor:
