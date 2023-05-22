@@ -46,13 +46,15 @@ curl -sS https://starship.rs/install.sh | sh
 
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
-sudo pacman -S tmux zsh bat exa dust fd procs sd htop ripgrep zoxide zip unzip wget neovim xsel pynvim python3 python-pip ttf-font-awesome git-delta nautilus xdg-user-dirs tidy
+sudo pacman -S tmux zsh bat exa dust fd procs sd htop ripgrep zoxide zip unzip wget neovim xsel pynvim python3 python-pip ttf-font-awesome git-delta nautilus xdg-user-dirs tidy ranger
 
 xdg-user-dirs-update
 
 cargo install ytop
 
 ln -s ~/dotfiles/.tmux.conf ~/
+
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 chsh -s /bin/zsh
 
@@ -82,7 +84,7 @@ npm i -g neovim
 
 pip install pynvim
 
-paru -S brave-bin visual-studio-code-bin ly megasync-bin nautilus-megasync google-java-format
+paru -S brave-bin visual-studio-code-bin ly megasync-bin nautilus-megasync google-java-format wps-office
 
 systemctl enable ly.service
 
