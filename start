@@ -1,0 +1,97 @@
+mkdir ~/.config
+
+cd ~/.config
+
+ln -s ~/dotfiles/dwm
+
+cd ~/dotfiles/dwm
+
+sudo make install
+
+cd ~/dotfiles/dwm/dmenu
+
+sudo make install
+
+cd ~/dotfiles/dwm/dwmblocks
+
+sudo make install
+
+cd ~/dotfiles/dwm/st
+
+sudo make install
+
+ln -s ~/dotfiles/.xinitrc
+
+sudo mkdir /usr/share/xsessions
+
+cd /usr/share/xsessions
+
+sudo ln -s ~/dotfiles/dwm.desktop
+
+cd /tmp
+
+git clone https://aur.archlinux.org/paru.git
+
+cd /tmp/paru
+
+makepkg -si
+
+git clone --depth 1 https://github.com/ryanoasis/nerd-fonts.git
+
+cd /tmp/nerd-fonts
+
+./install.sh
+
+curl -sS https://starship.rs/install.sh | sh
+
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
+sudo pacman -S tmux zsh bat exa dust fd procs sd htop ripgrep zoxide zip unzip wget neovim xsel pynvim python3 python-pip ttf-font-awesome git-delta nautilus xdg-user-dirs tidy
+
+xdg-user-dirs-update
+
+cargo install ytop
+
+ln -s ~/dotfiles/.tmux.conf ~/
+
+chsh -s /bin/zsh
+
+cd ~/.config
+
+ln -s ~/dotfiles/lazygit
+
+ln -s ~/dotfiles/.starship.toml
+
+ln -s ~/dotfiles/.zshrc ~/
+
+mkdir ~/.zsh
+
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.zsh/zsh-syntax-highlighting
+
+git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
+
+curl -s "https://get.sdkman.io" | bash
+
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+
+cd ~/.config
+
+ln -s ~/dotfiles/nvim
+
+npm i -g neovim
+
+pip install pynvim
+
+paru -S brave-bin visual-studio-code-bin ly megasync-bin nautilus-megasync google-java-format
+
+systemctl enable ly.service
+
+systemctl disable getty@tty2.service
+
+sudo npm i -g prettier
+
+sudo pip install black
+
+sudo pip install flake8
+
+cargo install stylua
