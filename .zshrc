@@ -36,11 +36,11 @@ alias ps='procs'
 
 alias top='ytop'
 
-tmux attach &> /dev/null
-
-if [[ ! $TERM =~ screen ]]; then
-    exec tmux
-fi
+# tmux attach &> /dev/null
+#
+# if [[ ! $TERM =~ screen ]]; then
+#     exec tmux
+# fi
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
