@@ -1,4 +1,8 @@
-sudo pacman -S pacman-contrib
+!#/bin/bash
+
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
+sudo pacman -S pacman-contrib tmux transmission-gtk zsh bat pulsemixer exa dust fd procs sd htop ripgrep zoxide zip unzip wget neovim xsel python3 python-pip ttf-font-awesome git-delta nautilus xdg-user-dirs tidy ranger gnome-disk-utility --noconfirm
 
 mkdir ~/.config
 
@@ -22,6 +26,10 @@ cd ~/dotfiles/dwm/st
 
 sudo make install
 
+cd ~
+
+ln -s ~/dotfiles/.dwm
+
 ln -s ~/dotfiles/.xinitrc
 
 sudo mkdir /usr/share/xsessions
@@ -38,7 +46,7 @@ cd /tmp/paru
 
 makepkg -si
 
-git clone --depth 1 https://github.com/ryanoasis/nerd-fonts.git
+git clone --depth 1 https://github.com/ryanoasis/nerd-fonts.git /tmp/nerd-fonts
 
 cd /tmp/nerd-fonts
 
@@ -46,13 +54,11 @@ cd /tmp/nerd-fonts
 
 curl -sS https://starship.rs/install.sh | sh
 
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-
-sudo pacman -S tmux zsh bat exa dust fd procs sd htop ripgrep zoxide zip unzip wget neovim xsel pynvim python3 python-pip ttf-font-awesome git-delta nautilus xdg-user-dirs tidy ranger gnome-disk-utility
-
 xdg-user-dirs-update
 
 cargo install ytop
+
+cd ~
 
 ln -s ~/dotfiles/.tmux.conf ~/
 
@@ -66,7 +72,9 @@ ln -s ~/dotfiles/lazygit
 
 ln -s ~/dotfiles/.starship.toml
 
-ln -s ~/dotfiles/.zshrc ~/
+cd ~
+
+ln -s ~/dotfiles/.zshrc 
 
 mkdir ~/.zsh
 
@@ -76,7 +84,17 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosugges
 
 curl -s "https://get.sdkman.io" | bash
 
+source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+sdk install java
+
+sdk install maven
+
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+
+source ~/.zshrc
+
+nvm install node
 
 cd ~/.config
 
@@ -86,12 +104,6 @@ npm i -g neovim
 
 pip install pynvim
 
-paru -S brave-bin visual-studio-code-bin ly megasync-bin nautilus-megasync google-java-format wps-office postman-bin
-
-systemctl enable ly.service
-
-systemctl disable getty@tty2.service
-
 sudo npm i -g prettier
 
 sudo pip install black
@@ -99,3 +111,9 @@ sudo pip install black
 sudo pip install flake8
 
 cargo install stylua
+
+paru -S brave-bin visual-studio-code-bin ly megasync-bin nautilus-megasync google-java-format wps-office postman-bin --noconfirm
+
+sudo systemctl enable ly.service
+
+sudo systemctl disable getty@tty2.service
