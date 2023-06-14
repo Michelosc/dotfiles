@@ -1,6 +1,6 @@
 !#/bin/bash
 
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -- -y
 
 sudo pacman -S pacman-contrib tmux transmission-gtk zsh bat pulsemixer exa dust fd procs sd htop ripgrep zoxide zip unzip wget neovim xsel python3 python-pip ttf-font-awesome git-delta nautilus xdg-user-dirs tidy ranger gnome-disk-utility --noconfirm
 
@@ -109,6 +109,20 @@ sudo npm i -g prettier
 sudo pip install black
 
 sudo pip install flake8
+
+git clone https://github.com/microsoft/java-debug.git
+
+cd ~/dotfiles/nvim/java-debug
+
+./mvnw clean install
+
+git clone https://github.com/microsoft/vscode-java-test.git
+
+cd ~/dotfiles/nvim/vscode-java-test
+
+npm install
+
+npm run build-plugin
 
 cargo install stylua
 
