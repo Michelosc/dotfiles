@@ -70,7 +70,7 @@ cd ~/.config
 
 ln -s ~/dotfiles/lazygit
 
-ln -s ~/dotfiles/.starship.toml
+ln -s ~/dotfiles/starship.toml
 
 cd ~
 
