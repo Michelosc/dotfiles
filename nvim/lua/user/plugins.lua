@@ -1,127 +1,91 @@
-local fn = vim.fn
-
--- Automatically install packer
-local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
----@diagnostic disable-next-line: missing-parameter
-if fn.empty(fn.glob(install_path)) > 0 then
-	PACKER_BOOTSTRAP = fn.system({
-		"git",
-		"clone",
-		"--depth",
-		"1",
-		"https://github.com/wbthomason/packer.nvim",
-		install_path,
-	})
-	print("Installing packer close and reopen Neovim...")
-	vim.cmd([[packadd packer.nvim]])
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
 end
+vim.opt.rtp:prepend(lazypath)
 
--- Autocommand that reloads neovim whenever you save the plugins.lua file
-vim.cmd [[
-  augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerSync
-  augroup end
-]]
-
--- Use a protected call so we don't error out on first use
-local status_ok, packer = pcall(require, "packer")
-if not status_ok then
-  return
-end
-
--- Have packer use a popup window
-packer.init {
-  -- snapshot = "july-24",
-  snapshot_path = fn.stdpath "config" .. "/snapshots",
-  max_jobs = 50,
-  display = {
-    open_fn = function()
-      return require("packer.util").float { border = "rounded" }
-    end,
-    prompt_border = "rounded", -- Border style of prompt popups.
-  },
-}
-
-return require("packer").startup(function(use)
-	use("wbthomason/packer.nvim")
-	use("folke/tokyonight.nvim")
-	use("nvim-tree/nvim-tree.lua")
-	use("nvim-tree/nvim-web-devicons")
-	use("nvim-lualine/lualine.nvim")
-	use("theprimeagen/harpoon")
-	use("mbbill/undotree")
-	use("windwp/nvim-autopairs")
-	use("numToStr/Comment.nvim")
-	use("akinsho/bufferline.nvim")
-	use("moll/vim-bbye")
-	use("akinsho/toggleterm.nvim")
-	use("lukas-reineke/indent-blankline.nvim")
-	use("christianchiarulli/lua-dev.nvim")
-	use("b0o/SchemaStore.nvim")
-	use("goolord/alpha-nvim")
-	use("lewis6991/impatient.nvim")
-
-	-- Git
-	use("f-person/git-blame.nvim")
-	use("lewis6991/gitsigns.nvim")
-
-	-- DAP
-	use("mfussenegger/nvim-dap")
-	use("rcarriga/nvim-dap-ui")
-	use("ravenxrz/DAPInstall.nvim")
-	use("simrat39/rust-tools.nvim")
-	use("nvim-telescope/telescope-dap.nvim")
-	use("theHamsta/nvim-dap-virtual-text")
-	use("leoluz/nvim-dap-go")
-
-	-- Treesitter
-	use("nvim-treesitter/nvim-treesitter")
-	use("JoosepAlviste/nvim-ts-context-commentstring")
-	use("nvim-treesitter/playground")
-	use("p00f/nvim-ts-rainbow")
-
-	-- Telescope
-	use({
-		"nvim-telescope/telescope.nvim",
-		tag = "0.1.1",
-		requires = { { "nvim-lua/plenary.nvim" } },
-	})
+require("lazy").setup({
+	"folke/tokyonight.nvim",
+	{
+		"nvim-tree/nvim-tree.lua",
+		version = "*",
+		lazy = false,
+		dependencies = {
+		  "nvim-tree/nvim-web-devicons",
+		},
+		config = function()
+		  require("nvim-tree").setup {}
+		end,
+	},
+	"nvim-lualine/lualine.nvim",
+	"theprimeagen/harpoon",
+	"mbbill/undotree",
+	"windwp/nvim-autopairs",
+	"numToStr/Comment.nvim",
+	"akinsho/bufferline.nvim",
+	"moll/vim-bbye",
+	"akinsho/toggleterm.nvim",
+	{ "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
+	"christianchiarulli/lua-dev.nvim",
+	"b0o/SchemaStore.nvim",
+	"goolord/alpha-nvim",
+	"lewis6991/impatient.nvim",
 
 	-- Completion
-	use("hrsh7th/nvim-cmp")
-	use("hrsh7th/cmp-buffer")
-	use("hrsh7th/cmp-path")
-	use("hrsh7th/cmp-nvim-lsp")
-	use("hrsh7th/cmp-nvim-lua")
-	use("saadparwaiz1/cmp_luasnip")
-	use("rcarriga/cmp-dap")
+	"hrsh7th/nvim-cmp",
+	"hrsh7th/cmp-buffer",
+	"hrsh7th/cmp-path",
+	"hrsh7th/cmp-nvim-lsp",
+	"hrsh7th/cmp-nvim-lua",
+	"saadparwaiz1/cmp_luasnip",
+	"rcarriga/cmp-dap",
+	
+	-- Git
+	"f-person/git-blame.nvim",
+	"lewis6991/gitsigns.nvim",
+  
+	-- DAP
+	"mfussenegger/nvim-dap",
+	"rcarriga/nvim-dap-ui",
+	"ravenxrz/DAPInstall.nvim",
+	"simrat39/rust-tools.nvim",
+	"nvim-telescope/telescope-dap.nvim",
+	"theHamsta/nvim-dap-virtual-text",
+	"leoluz/nvim-dap-go",
+
+	-- Treesitter
+	{"nvim-treesitter/nvim-treesitter",dependencies = { 'nvim-lua/plenary.nvim' }},
+	"JoosepAlviste/nvim-ts-context-commentstring",
+	"nvim-treesitter/playground",
+	"p00f/nvim-ts-rainbow",
+
+	-- Telescope
+	"nvim-telescope/telescope.nvim",
 
 	-- Snippets
-	use("rafamadriz/friendly-snippets")
-	use("L3MON4D3/LuaSnip")
+	"rafamadriz/friendly-snippets",
+	"L3MON4D3/LuaSnip",
 
 	-- LSP
-	use({
-		"williamboman/mason.nvim",
-		"williamboman/mason-lspconfig.nvim",
-		"neovim/nvim-lspconfig",
-	})
-	use("jose-elias-alvarez/null-ls.nvim")
-	use("RRethy/vim-illuminate")
+	"williamboman/mason.nvim",
+	"williamboman/mason-lspconfig.nvim",
+	"neovim/nvim-lspconfig",
+	"jose-elias-alvarez/null-ls.nvim",
+	"RRethy/vim-illuminate",
 
 	-- Java
-	use("mfussenegger/nvim-jdtls")
+	"mfussenegger/nvim-jdtls",
 
 	-- Typescript
-	use("jose-elias-alvarez/typescript.nvim")
+	"jose-elias-alvarez/typescript.nvim",
 
 	-- Go
-	use("fatih/vim-go") -- https://github.com/fatih/vim-go
-
-	-- Automatically set up your configuration after cloning packer.nvim
-	-- Put this at the end after all plugins
-	if packer_bootstrap then
-		require("packer").sync()
-	end
-end)
+	"fatih/vim-go"
+})
