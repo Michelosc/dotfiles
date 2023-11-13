@@ -64,7 +64,7 @@ require("lazy").setup({
 	{"nvim-treesitter/nvim-treesitter",dependencies = { 'nvim-lua/plenary.nvim' }},
 	"JoosepAlviste/nvim-ts-context-commentstring",
 	"nvim-treesitter/playground",
-	"p00f/nvim-ts-rainbow",
+	"HiPhish/rainbow-delimiters.nvim",
 
 	-- Telescope
 	"nvim-telescope/telescope.nvim",
