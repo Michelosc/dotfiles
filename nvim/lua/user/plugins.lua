@@ -1,27 +1,33 @@
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system({
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable", -- latest stable release
-    lazypath,
-  })
+	vim.fn.system({
+		"git",
+		"clone",
+		"--filter=blob:none",
+		"https://github.com/folke/lazy.nvim.git",
+		"--branch=stable", -- latest stable release
+		lazypath,
+	})
 end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-	"folke/tokyonight.nvim",
+	-- "folke/tokyonight.nvim",
+	{
+		"craftzdog/solarized-osaka.nvim",
+		lazy = false,
+		priority = 1000,
+		opts = {},
+	},
 	{
 		"nvim-tree/nvim-tree.lua",
 		version = "*",
 		lazy = false,
 		dependencies = {
-		  "nvim-tree/nvim-web-devicons",
+			"nvim-tree/nvim-web-devicons",
 		},
 		config = function()
-		  require("nvim-tree").setup {}
+			require("nvim-tree").setup({})
 		end,
 	},
 	"nvim-lualine/lualine.nvim",
@@ -46,11 +52,11 @@ require("lazy").setup({
 	"hrsh7th/cmp-nvim-lua",
 	"saadparwaiz1/cmp_luasnip",
 	"rcarriga/cmp-dap",
-	
+
 	-- Git
 	"f-person/git-blame.nvim",
 	"lewis6991/gitsigns.nvim",
-  
+
 	-- DAP
 	"mfussenegger/nvim-dap",
 	"rcarriga/nvim-dap-ui",
@@ -61,7 +67,7 @@ require("lazy").setup({
 	"leoluz/nvim-dap-go",
 
 	-- Treesitter
-	{"nvim-treesitter/nvim-treesitter",dependencies = { 'nvim-lua/plenary.nvim' }},
+	{ "nvim-treesitter/nvim-treesitter", dependencies = { "nvim-lua/plenary.nvim" } },
 	"JoosepAlviste/nvim-ts-context-commentstring",
 	"nvim-treesitter/playground",
 	"HiPhish/rainbow-delimiters.nvim",
@@ -89,19 +95,19 @@ require("lazy").setup({
 	-- Go
 	"fatih/vim-go",
 
-  {
-    "folke/noice.nvim",
-    event = "VeryLazy",
-    opts = {
-      -- add any options here
-    },
-    dependencies = {
-      -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
-      "MunifTanjim/nui.nvim",
-      -- OPTIONAL:
-      --   `nvim-notify` is only needed, if you want to use the notification view.
-      --   If not available, we use `mini` as the fallback
-      "rcarriga/nvim-notify",
-    }
-  }
+	{
+		"folke/noice.nvim",
+		event = "VeryLazy",
+		opts = {
+			-- add any options here
+		},
+		dependencies = {
+			-- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+			"MunifTanjim/nui.nvim",
+			-- OPTIONAL:
+			--   `nvim-notify` is only needed, if you want to use the notification view.
+			--   If not available, we use `mini` as the fallback
+			"rcarriga/nvim-notify",
+		},
+	},
 })
