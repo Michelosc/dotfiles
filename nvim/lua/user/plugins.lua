@@ -12,13 +12,13 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-	-- "folke/tokyonight.nvim",
-	{
-		"craftzdog/solarized-osaka.nvim",
-		lazy = false,
-		priority = 1000,
-		opts = {},
-	},
+	"folke/tokyonight.nvim",
+	-- {
+	-- 	"craftzdog/solarized-osaka.nvim",
+	-- 	lazy = false,
+	-- 	priority = 1000,
+	-- 	opts = {},
+	-- },
 	{
 		"nvim-tree/nvim-tree.lua",
 		version = "*",
