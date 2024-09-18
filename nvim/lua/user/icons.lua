@@ -1,5 +1,5 @@
 return {
-   git = {
+  git = {
     LineAdded = "",
     LineModified = "",
     LineRemoved = "",
@@ -15,5 +15,19 @@ return {
     Octoface = "",
     Copilot = "",
     Branch = "",
+  },
+  diagnostics = {
+    BoldError = "",
+    Error = "",
+    BoldWarning = "",
+    Warning = "",
+    BoldInformation = "",
+    Information = "",
+    BoldQuestion = "",
+    Question = "",
+    BoldHint = "",
+    Hint = "󰌶",
+    Debug = "",
+    Trace = "✎",
   },
 }

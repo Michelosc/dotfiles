@@ -52,6 +52,7 @@ require("lazy").setup({
 	"hrsh7th/cmp-nvim-lua",
 	"saadparwaiz1/cmp_luasnip",
 	"rcarriga/cmp-dap",
+  "onsails/lspkind.nvim",
 
 	-- Git
 	"f-person/git-blame.nvim",
@@ -85,7 +86,7 @@ require("lazy").setup({
 	"neovim/nvim-lspconfig",
 	"jose-elias-alvarez/null-ls.nvim",
 	"RRethy/vim-illuminate",
-
+  "WhoIsSethDaniel/mason-tool-installer.nvim",
 	-- Java
 	"mfussenegger/nvim-jdtls",
 
@@ -94,6 +95,8 @@ require("lazy").setup({
 
 	-- Go
 	"fatih/vim-go",
+
+  "windwp/nvim-ts-autotag",
 
 	{
 		"folke/noice.nvim",

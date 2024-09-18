@@ -17,7 +17,7 @@ local servers = {
   "jdtls",
   "jsonls",
   "lua_ls",
-  "tsserver",
+  "ts_ls",
   "pyright",
   "yamlls",
   "bashls",
@@ -76,9 +76,6 @@ for _, server in pairs(servers) do
     if not l_status_ok then
       return
     end
-    -- local sumneko_opts = require "user.lsp.settings.sumneko_lua"
-    -- opts = vim.tbl_deep_extend("force", sumneko_opts, opts)
-    -- opts = vim.tbl_deep_extend("force", require("lua-dev").setup(), opts)
     local luadev = lua_dev.setup {
       --   -- add any options here, or leave empty to use the default settings
       -- lspconfig = opts,
@@ -92,7 +89,7 @@ for _, server in pairs(servers) do
     goto continue
   end
 
-  if server == "tsserver" then
+  if server == "ts_ls" then
     local tsserver_opts = require("user.lsp.settings.tsserver")
     opts = vim.tbl_deep_extend("force", tsserver_opts, opts)
   end
