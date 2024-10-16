@@ -6,7 +6,7 @@
         "on-click": "activate",
         "active-only": false,
         "all-outputs": true,
-        "format": "{icon}",
+        "format": "{}",
         "format-icons": {
           "urgent": "",
           "active": "",
@@ -115,21 +115,14 @@
     },
 
     "custom/apps": {
-      "format" : "Apps",
+      "format" : "",
       "tooltip" : false,
       "on-click" : "rofi -show drun -run"
     },  
 
     "custom/power": {
         "format" : "⏻ ",
-        "tooltip": false,
-        "menu": "on-click",
-        "menu-file": "$HOME/.config/waybar/power_menu.xml", // Menu file in resources folder
-        "menu-actions": {
-          "shutdown": "shutdown",
-          "reboot": "reboot",
-          "suspend": "systemctl suspend",
-          "hibernate": "systemctl hibernate"
-        }
+        "on-click": "wlogout",
+        "tooltip-format" : "Power Menu"
     }
 }

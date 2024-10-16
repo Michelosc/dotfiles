@@ -12,6 +12,8 @@ ln -s ~/dotfiles/waybar/ .
 
 ln -s ~/dotfiles/hypr/ .
 
+ln -s ~/dotfiles/rofi/ .
+
 git clone --depth 1 https://github.com/ryanoasis/nerd-fonts.git /tmp/nerd-fonts
 
 cd /tmp/nerd-fonts
