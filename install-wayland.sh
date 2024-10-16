@@ -2,11 +2,13 @@
 
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -- -y
 
-sudo pacman -S pacman-contrib tmux zsh bat pulsemixer exa dust fd procs sd htop ripgrep zoxide zip unzip wget neovim xsel python3 python-pip ttf-font-awesome git-delta nautilus xdg-user-dirs tidy ranger gnome-disk-utility --noconfirm
+sudo pacman -S pacman-contrib hyprpaper waybar rofi-wayland tmux zsh bat pulsemixer exa dust fd procs sd htop ripgrep zoxide zip unzip wget neovim xsel python3 python-pip ttf-font-awesome git-delta thunar tumbler xdg-user-dirs tidy ranger gnome-disk-utility --noconfirm
 
 mkdir ~/.config
 
 cd ~/.config
+
+ln -s ~/dotfiles/waybar/ .
 
 ln -s ~/dotfiles/hypr/ .
 
