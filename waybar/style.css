@@ -17,22 +17,8 @@ window#waybar.hidden {
     opacity: 0.2;
 }
 
-/*
-window#waybar.empty {
+window#waybar.empty #window{
     background-color: transparent;
-}
-window#waybar.solo {
-    background-color: #FFFFFF;
-}
-*/
-
-window#waybar.termite {
-    background-color: #3F3F3F;
-}
-
-window#waybar.chromium {
-    background-color: #000000;
-    border: none;
 }
 
 button {
@@ -139,7 +125,7 @@ button:hover {
 }
 
 #custom-apps {
-    padding: 0px 10px 0px 5px;
+    padding: 0px 12px 0px 5px;
     margin: 3px 17px 3px 0px;
     font-size: 18px;
     border: 1px solid;
